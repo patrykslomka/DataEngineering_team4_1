@@ -8,7 +8,7 @@ In the next section some explanation will follow on how work on this repository 
 ### Cloning the repository
 
 1. Open your command prompt or your terminal switch to the directory where you want your code to be.
-2. Clone the repository with the following command: `git clone https://github.com/patrykslomka/DataEngineering.git`
+2. Clone the repository with the following command: `git clone https://github.com/patrykslomka/DataEngineering_team4.git`
 3. Now open the new directory with Pycharm or the IDE of your choice
 
 ### Creating a virtual environment
@@ -20,7 +20,7 @@ Virtual environments allow you to create separate Python environments for differ
 version and installed packages. This can be useful when you need to use different versions of packages or Python itself
 for different projects, or when you want to avoid conflicts between packages that have conflicting dependencies.
 
-1. First clone the repository into a specific directory: `git clone https://github.com/patrykslomka/DataEngineering.git`
+1. First clone the repository into a specific directory: `git clone https://github.com/patrykslomka/DataEngineering_team4.git`
 2. Enter project directory: `cd algorithms`
 3. Create a virtual environment: `python -m venv venv`
 4. Activate virtual environment: `windows: venv\Scripts\activate` or `mac: source venv/bin/activate`

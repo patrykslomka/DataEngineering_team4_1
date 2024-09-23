@@ -1,5 +1,5 @@
 ## DataEngineering
-Repository for the Data Engineering course at JADS - Team 4
+Repository for the team assignment 1 of Data Engineering course at JADS - Team 4
 
 ## Getting Started
 
@@ -8,7 +8,7 @@ In the next section some explanation will follow on how work on this repository 
 ### Cloning the repository
 
 1. Open your command prompt or your terminal switch to the directory where you want your code to be.
-2. Clone the repository with the following command: `git clone https://github.com/patrykslomka/DataEngineering_team4.git`
+2. Clone the repository with the following command: `git clone https://github.com/patrykslomka/DataEngineering_team4_1.git`
 3. Now open the new directory with Pycharm or the IDE of your choice
 
 ### Creating a virtual environment
@@ -20,7 +20,7 @@ Virtual environments allow you to create separate Python environments for differ
 version and installed packages. This can be useful when you need to use different versions of packages or Python itself
 for different projects, or when you want to avoid conflicts between packages that have conflicting dependencies.
 
-1. First clone the repository into a specific directory: `git clone https://github.com/patrykslomka/DataEngineering_team4.git`
+1. First clone the repository into a specific directory: `git clone https://github.com/patrykslomka/DataEngineering_team4_1.git`
 2. Enter project directory: `cd algorithms`
 3. Create a virtual environment: `python -m venv venv`
 4. Activate virtual environment: `windows: venv\Scripts\activate` or `mac: source venv/bin/activate`
@@ -82,7 +82,7 @@ are working on will be colored green, otherwise, see above.
 - Once the feature branch is complete, you first have to make sure it is up to date with the remote repo on Github. To
   assure this, run in the CLI: `git pull`.
 - Then you can create a pull request on the Github website.
-- Important: select two developers to review your code.
+- Important: select one developer to review your code.
 - The reviewers will check your code and give you feedback by adding comments to your code.
 - You can now resolve the comments by making new commits to the branch. When you are done, request the reviewers to
 check your changes.

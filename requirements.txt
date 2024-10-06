@@ -7,4 +7,5 @@ scikit-learn
 pickle
 pandas
 logging
+
 ## If soemthing doesn't work, install manually -> pip install kfp google-cloud-pipeline-components google-cloud-aiplatform

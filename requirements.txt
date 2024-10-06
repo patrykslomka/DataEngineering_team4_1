@@ -1,1 +1,10 @@
-
+kfp >=1.6
+kfp.dsl
+typing
+google-cloud-pipeline-components>=2
+google-cloud-aiplatform>=1.69.0
+scikit-learn
+pickle
+pandas
+logging
+## If soemthing doesn't work, install manually -> pip install kfp google-cloud-pipeline-components google-cloud-aiplatform

@@ -39,13 +39,6 @@ Github. If you have any files that do not belong to github (e.g. big data files 
 in the Gitignore). For example: Different IDE's use files we do not want in our repo. Check your directory for hidden
 files and add those to the `.gitignore` file.
 
-#### Constants (to be created)
-
-In the directory `config` there are two files: `constants.py` and `personal_constants.py`.  `personal_constants.py` is
-included in`.gitignore` thus your confidential constants
-are never pushed to Github. Make sure to define all constants in UPPERCASE. Whenever you need a confidential constant,
-first import the personal constant in `constants.py`, then import `constants.py` in your script.
-
 ### Branching strategy
 
 Here it is explained how you should work with branches. The main point is that nobody is allowed to push directly to the

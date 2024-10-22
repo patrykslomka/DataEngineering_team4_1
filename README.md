@@ -82,12 +82,12 @@ check your changes.
 
 ### Creating Network in Terminal
 
--'predictor-network' is a custom network name
+- 'predictor-network' is a custom network name
 ```docker network create predictor-network```
 
 #### Creating API in Terminal
 
--'9999'is a custom network port
+- '9999'is a custom network port
 ```
 docker build -t predictor-api:0.0.1 .
 docker run -d --name predic`tor-api-server -p 9999:9999 predictor-api:0.0.1
@@ -97,7 +97,7 @@ docker logs predictor-api-server
 
 #### Creating UI in Terminal
 
--'8888'is a custom network port
+- '8888'is a custom network port
 ```
 docker build -t predictor-ui:0.0.1 . 
 docker run -p  8888:8888 -d --name=predictor-ui prediction-ui:0.0.1

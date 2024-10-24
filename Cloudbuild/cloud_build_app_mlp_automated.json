@@ -23,7 +23,7 @@
         "build",
         "-t",
         "${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/prediction-ui:0.0.1",
-        "./UI/"
+        "./UI"
       ]
     },
     {

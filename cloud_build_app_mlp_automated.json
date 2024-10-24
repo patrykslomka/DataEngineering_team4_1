@@ -4,8 +4,16 @@
        "name": "gcr.io/cloud-builders/gsutil",
        "args": [
            "cp",
-		   "gs://${_MODEL_REPO}/mlp_model.h5",
-           "./lab2/prediction-api/model.h5"
+		   "gs://${_MODEL_REPO}/rf_model.pkl",
+           "./API/rf_model.pkl"
+        ]
+    },
+    {
+       "name": "gcr.io/cloud-builders/gsutil",
+       "args": [
+           "cp",
+		   "gs://${_MODEL_REPO}/xgboost.pkl",
+           "./API/xgboost.pkl"
         ]
     },
     {
@@ -14,7 +22,7 @@
         "build",
         "-t",
         "${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/prediction-api:0.0.1",
-        "./lab2/prediction-api"
+        "./API/prediction-api"
       ]
     },
     {
@@ -23,7 +31,7 @@
         "build",
         "-t",
         "${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/prediction-ui:0.0.1",
-        "./lab2/prediction-ui"
+        "./UI/prediction-ui"
       ]
     },
     {

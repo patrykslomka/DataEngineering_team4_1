@@ -4,8 +4,8 @@
        "name": "gcr.io/cloud-builders/gsutil",
        "args": [
            "cp",
-		   "gs://${_MODEL_REPO}/mlp_model.h5",
-           "./lab2/prediction-api/model.h5"
+		   "gs://${_MODEL_REPO}/lr_model.pkl",
+           "./API/lr_model.pkl"
         ]
     },
     {
@@ -14,7 +14,7 @@
         "build",
         "-t",
         "${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/prediction-api:0.0.1",
-        "./lab2/prediction-api"
+        "./API"
       ]
     },
     {
@@ -23,7 +23,7 @@
         "build",
         "-t",
         "${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/prediction-ui:0.0.1",
-        "./lab2/prediction-ui"
+        "./UI/"
       ]
     },
     {

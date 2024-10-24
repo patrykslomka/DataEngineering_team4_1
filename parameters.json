@@ -1,5 +1,7 @@
 {
   "project_id": "de2024-435209",
   "data_bucket": "data_de2024_assignment1_g4",
+  "trainset_filename": "train_data.csv",
+  "testset_filename": "test_data.csv", 
   "model_repo": "models_assignment1_de"
 }

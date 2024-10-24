@@ -3,5 +3,5 @@
   "data_bucket": "data_de2024_assignment1_g4",
   "dataset_uri":"gs://data_de2024_assignment1_g4/California_Houses.csv",
   "model_repo": "models_assignment1_de",
-  "thresholds_dict_str":"{"r2":0.8}"
+  "thresholds_dict_str":"{r2:0.8}"
 }

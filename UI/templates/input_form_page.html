@@ -1,0 +1,54 @@
+<html>
+<head>
+    <title>Housing Check Model</title>
+</head>
+<body>
+
+<form action="/housing_predict/" method="POST">
+    <h1> Check House Price</h1>
+    <label for="Income">Your income:</label>
+    <input type="text" id="Median_Income" name="Median_Income" placeholder="Income"> <br>
+
+    <label for="Age">Your Age:</label>
+    <input type="text" id="Median_Age" name="Median_Age" placeholder="Age"> <br>
+
+    <label for="Totroom">How many rooms you have:</label>
+    <input type="text" id="Tot_Rooms" name="Tot_Rooms" placeholder="Totroom"> <br>
+
+    <label for="Tot_Bedrooms">Total bedrooms :</label>
+    <input type="text" id="Tot_Bedrooms" name="Tot_Bedrooms" placeholder="Rooms_Bedroom_ratio"> <br>
+
+    <label for="Population">Block population</label>
+    <input type="text" id="Population" name="Population" placeholder="Proximity_to_Multiple_Cities"> <br>
+
+    <label for="Households"> How many households you habe :</label>
+    <input type="text" id="Households" name="Households" placeholder="Households"> <br>
+
+    <label for="Latitude">Latitude:</label>
+    <input type="text" id="Latitude" name="Latitude" placeholder="Population_per_Household"> <br>
+
+    <label for="Longitude">Longitude:</label>
+    <input type="text" id="Longitude" name="Longitude" placeholder="Population"> <br>
+
+    <label for="Distance_to_coast">Distance to coast(meter):</label>
+    <input type="text" id="Distance_to_coast" name="Distance_to_coast" placeholder="Distance_to_coast"> <br>
+
+    <label for="Distance_to_LA">Distance to LA(meter):</label>
+    <input type="text" id="Distance_to_LA" name="Distance_to_LA" placeholder="Distance_to_LA"> <br>
+
+    <label for="Distance_to_SanDiego">Distance to SanDiego(meter):</label>
+    <input type="text" id="Distance_to_SanDiego" name="Distance_to_SanDiego" placeholder="Distance_to_SanFrancisco"> <br>
+
+    <label for="Distance_to_SanJose">Distance to SanJose(meter):</label>
+    <input type="text" id="Distance_to_SanJose" name="Distance_to_SanJose" placeholder="Distance_to_SanJose"> <br>
+
+    <label for="Distance_to_SanFranciscoe">Distance to SanFrancisco(meter):</label>
+    <input type="text" id="Distance_to_SanFrancisco" name="Distance_to_SanFrancisco" placeholder="Distance_to_SanFrancisco"> <br>
+
+    <p><input type='submit' value='Check'/></p>
+</form>
+
+</body>
+</html>
+
+<!-- check https://flask.palletsprojects.com/en/2.3.x/tutorial/templates/ for information if needed -->

@@ -79,3 +79,38 @@ are working on will be colored green, otherwise, see above.
 - The reviewers will check your code and give you feedback by adding comments to your code.
 - You can now resolve the comments by making new commits to the branch. When you are done, request the reviewers to
 check your changes.
+
+### Creating Network in Terminal
+
+- 'predictor-network' is a custom network name
+```docker network create predictor-network```
+
+#### Creating API in Terminal
+
+- '9999'is a custom network port
+```
+docker build -t predictor-api:0.0.1 .
+docker run -d --name predic`tor-api-server -p 9999:9999 predictor-api:0.0.1
+docker start predictor-api-server
+docker logs predictor-api-server
+```
+
+#### Creating UI in Terminal
+
+- '8888'is a custom network port
+```
+docker build -t predictor-ui:0.0.1 . 
+docker run -p  8888:8888 -d --name=predictor-ui prediction-ui:0.0.1
+docker start predictor-ui
+docker logs predictor-ui
+```
+
+#### Connecting To network
+
+```
+docker network connect predictor-network prediction-api-server
+docker network connect predictor-network prediction-ui
+```
+
+
+

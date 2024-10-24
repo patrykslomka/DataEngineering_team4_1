@@ -13,7 +13,7 @@
        "name": "${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/pipeline-executor:0.0.1",
        "args": [
            "--name=californiahousing-predictor-pipeline",           
-		   "--pipeline_def=./california_housing_pipeline.yaml",
+		   "--pipeline_def=./median_house_price_predictor_pipeline.yaml",
            "--pipeline_root=gs://${_TEMP_REPO}",         
 		   "--parameter_dict=./parameters.json"
         ]

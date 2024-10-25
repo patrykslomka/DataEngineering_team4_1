@@ -1,54 +1,124 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Housing Check Model</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+        .form-container {
+            width: 100%;
+            max-width: 500px;
+            padding: 2rem;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-container h1 {
+            font-size: 1.8rem;
+            color: #333333;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #555555;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #dddddd;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .footer {
+            text-align: center;
+            color: #999999;
+            font-size: 0.9rem;
+            margin-top: 1.5rem;
+        }
+    </style>
 </head>
 <body>
 
-<form action="/housing_predict/" method="POST">
-    <h1> Check House Price</h1>
-    <label for="Income">Your income:</label>
-    <input type="text" id="Median_Income" name="Median_Income" placeholder="Income"> <br>
+<div class="form-container">
+    <form action="/housing_predict/" method="POST">
+        <h1>Check House Price</h1>
+        
+        <label for="Median_Income">Your Income:</label>
+        <input type="text" id="Median_Income" name="Median_Income" placeholder="Enter your income">
 
-    <label for="Age">Your Age:</label>
-    <input type="text" id="Median_Age" name="Median_Age" placeholder="Age"> <br>
+        <label for="Median_Age">Your Age:</label>
+        <input type="text" id="Median_Age" name="Median_Age" placeholder="Enter your age">
 
-    <label for="Totroom">How many rooms you have:</label>
-    <input type="text" id="Tot_Rooms" name="Tot_Rooms" placeholder="Totroom"> <br>
+        <label for="Tot_Rooms">Number of Rooms:</label>
+        <input type="text" id="Tot_Rooms" name="Tot_Rooms" placeholder="Enter total rooms">
 
-    <label for="Tot_Bedrooms">Total bedrooms :</label>
-    <input type="text" id="Tot_Bedrooms" name="Tot_Bedrooms" placeholder="Rooms_Bedroom_ratio"> <br>
+        <label for="Tot_Bedrooms">Total Bedrooms:</label>
+        <input type="text" id="Tot_Bedrooms" name="Tot_Bedrooms" placeholder="Enter total bedrooms">
 
-    <label for="Population">Block population</label>
-    <input type="text" id="Population" name="Population" placeholder="Proximity_to_Multiple_Cities"> <br>
+        <label for="Population">Block Population:</label>
+        <input type="text" id="Population" name="Population" placeholder="Enter block population">
 
-    <label for="Households"> How many households you habe :</label>
-    <input type="text" id="Households" name="Households" placeholder="Households"> <br>
+        <label for="Households">Number of Households:</label>
+        <input type="text" id="Households" name="Households" placeholder="Enter households count">
 
-    <label for="Latitude">Latitude:</label>
-    <input type="text" id="Latitude" name="Latitude" placeholder="Population_per_Household"> <br>
+        <label for="Latitude">Latitude:</label>
+        <input type="text" id="Latitude" name="Latitude" placeholder="Enter latitude">
 
-    <label for="Longitude">Longitude:</label>
-    <input type="text" id="Longitude" name="Longitude" placeholder="Population"> <br>
+        <label for="Longitude">Longitude:</label>
+        <input type="text" id="Longitude" name="Longitude" placeholder="Enter longitude">
 
-    <label for="Distance_to_coast">Distance to coast(meter):</label>
-    <input type="text" id="Distance_to_coast" name="Distance_to_coast" placeholder="Distance_to_coast"> <br>
+        <label for="Distance_to_coast">Distance to Coast (m):</label>
+        <input type="text" id="Distance_to_coast" name="Distance_to_coast" placeholder="Enter distance to coast">
 
-    <label for="Distance_to_LA">Distance to LA(meter):</label>
-    <input type="text" id="Distance_to_LA" name="Distance_to_LA" placeholder="Distance_to_LA"> <br>
+        <label for="Distance_to_LA">Distance to LA (m):</label>
+        <input type="text" id="Distance_to_LA" name="Distance_to_LA" placeholder="Enter distance to LA">
 
-    <label for="Distance_to_SanDiego">Distance to SanDiego(meter):</label>
-    <input type="text" id="Distance_to_SanDiego" name="Distance_to_SanDiego" placeholder="Distance_to_SanFrancisco"> <br>
+        <label for="Distance_to_SanDiego">Distance to San Diego (m):</label>
+        <input type="text" id="Distance_to_SanDiego" name="Distance_to_SanDiego" placeholder="Enter distance to San Diego">
 
-    <label for="Distance_to_SanJose">Distance to SanJose(meter):</label>
-    <input type="text" id="Distance_to_SanJose" name="Distance_to_SanJose" placeholder="Distance_to_SanJose"> <br>
+        <label for="Distance_to_SanJose">Distance to San Jose (m):</label>
+        <input type="text" id="Distance_to_SanJose" name="Distance_to_SanJose" placeholder="Enter distance to San Jose">
 
-    <label for="Distance_to_SanFranciscoe">Distance to SanFrancisco(meter):</label>
-    <input type="text" id="Distance_to_SanFrancisco" name="Distance_to_SanFrancisco" placeholder="Distance_to_SanFrancisco"> <br>
+        <label for="Distance_to_SanFrancisco">Distance to San Francisco (m):</label>
+        <input type="text" id="Distance_to_SanFrancisco" name="Distance_to_SanFrancisco" placeholder="Enter distance to San Francisco">
 
-    <p><input type='submit' value='Check'/></p>
-</form>
+        <input type="submit" value="Check">
+    </form>
+</div>
 
 </body>
 </html>
-
-<!-- check https://flask.palletsprojects.com/en/2.3.x/tutorial/templates/ for information if needed -->

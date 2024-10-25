@@ -31,23 +31,28 @@
             width: 90%;
         }
 
-        .content-container h1 {
-            font-size: 2rem;
-            color: #4CAF50;
-            margin-bottom: 1rem;
+        .header-box {
+            background-color: #4CAF50;
+            color: #ffffff;
+            padding: 1rem;
+            border-radius: 8px 8px 0 0;
+            font-size: 1.8rem;
+            font-weight: bold;
         }
 
-        .content-container p {
+        .prediction-text {
+            margin-top: 1.5rem;
             font-size: 1.5rem;
             color: #555555;
-            margin-top: 1rem;
         }
     </style>
 </head>
 <body>
     <div class="content-container">
-        <h1>Likelihood of Housing Price</h1>
-        <p>Housing Price: <strong>{{ prediction_variable }}</strong></p>
+        <div class="header-box">
+            Estimated House Price
+        </div>
+        <p class="prediction-text">Housing Price: <strong>{{ prediction_variable }}</strong></p>
     </div>
 </body>
 </html>

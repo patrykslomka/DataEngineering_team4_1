@@ -1,9 +1,53 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Likelihood of Housing price</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Likelihood of Housing Price</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+            color: #333333;
+        }
+
+        .content-container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
+        }
+
+        .content-container h1 {
+            font-size: 2rem;
+            color: #4CAF50;
+            margin-bottom: 1rem;
+        }
+
+        .content-container p {
+            font-size: 1.5rem;
+            color: #555555;
+            margin-top: 1rem;
+        }
+    </style>
 </head>
 <body>
-    <p>Housing Price {{ prediction_variable}} </p >
+    <div class="content-container">
+        <h1>Likelihood of Housing Price</h1>
+        <p>Housing Price: <strong>{{ prediction_variable }}</strong></p>
+    </div>
 </body>
 </html>
-<!-- check https://flask.palletsprojects.com/en/2.3.x/tutorial/templates/ for information if needed -->

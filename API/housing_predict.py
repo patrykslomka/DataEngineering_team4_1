@@ -40,7 +40,7 @@ class HousingPredictor:
             try:
                 #model_repo = os.environ['MODEL_REPO']
                 #file_path = os.path.join(model_repo, "xgboost.pkl")
-                file_path = 'rf_model.pkl'
+                file_path = 'lr_model.pkl'
                 with open(file_path, 'rb') as file_path:    
                     self.model = pickle.load(file_path)
             except KeyError:

@@ -37,7 +37,6 @@ def housing_predict():
         ]
 
         logging.debug("Prediction input : %s", prediction_input)
-        prediction_input_json = json.dumps(prediction_input)
 
         # use requests library to execute the prediction service API by sending an HTTP POST request
         # use an environment variable to find the value of the diabetes prediction API
@@ -45,12 +44,8 @@ def housing_predict():
         # json.loads() method can be used to parse a valid JSON string and convert it into a Python Dictionary.
         predictor_api_url = os.environ['PREDICTOR_API']
         res = requests.post(predictor_api_url, json=json.loads(json.dumps(prediction_input)))
-        logging.info(res.json())
-        print(res.json())
+
         prediction_value = res.json()['result']
-        #res = requests.post(predictor_api_url, json=json.loads(json.dumps(prediction_input)))
-        #logging.info("Status Code: %s", res.status_code)
-        #logging.info("Response Content: %s", res.text)
         logging.info("Prediction Output : %s", prediction_value)
         return render_template("response_page.html",
                                prediction_variable=prediction_value)

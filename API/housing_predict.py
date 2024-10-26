@@ -28,5 +28,7 @@ class HousingPredictor:
         logging.info(y_pred[0])
         status = (y_pred[0] > 0.5)
         logging.info(type(status[0]))
+        kanker = jsonify({'result': str(status[0])})
+        print(kanker)
         # return the prediction outcome as a json message. 200 is HTTP status code 200, indicating successful completion
         return jsonify({'result': str(status[0])}), 200

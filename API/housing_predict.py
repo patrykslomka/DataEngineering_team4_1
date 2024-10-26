@@ -45,8 +45,8 @@ class HousingPredictor:
                     self.model = pickle.load(file_path)
             except KeyError:
                 print("MODEL_REPO is undefined")
-                with open('rf_model.pkl', 'rb') as file_path:
-                    self.model = pickle.load('rf_model.pkl')
+                with open('lr_model.pkl', 'rb') as file_path:
+                    self.model = pickle.load('lr_model.pkl')
 
         df = pd.read_json(StringIO(json.dumps(prediction_input)), orient='records')
         #df = pd.DataFrame([prediction_input])

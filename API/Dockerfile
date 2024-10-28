@@ -11,7 +11,9 @@ COPY . .
 # Expose the port that our app runs in
 EXPOSE 5000
 # Environment Variables
-ENV MODEL_REPO=/usr/src/myapp
+ENV PROJECT_ID=de2024-435209
+ENV MODEL_REPO=models_assignment1_de
+ENV MODEL_NAME=lr_model.pkl
 # Run our App
 CMD ["python3","app.py"]
 # We can also use an ENTRYPOINT and a CMD

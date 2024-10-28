@@ -1,4 +1,3 @@
-
 import sklearn
 import pickle
 import json
@@ -28,8 +27,16 @@ import pandas as pd
 
 # Convert the dictionary to a DataFrame
 #df = pd.DataFrame(data)
-
-
+def download_model(self):
+    project_id = os.environ.get('PROJECT_ID', 'Specified environment variable is not set.')
+    model_repo = os.environ.get('MODEL_REPO', 'Specified environment variable is not set.')
+    model_name = os.environ.get('MODEL_NAME', 'Specified environment variable is not set.')
+    client = storage.Client(project=project_id)
+    bucket = client.bucket(model_repo)
+    blob = bucket.blob(model_name)
+    blob.download_to_filename('lr_model.pkl')
+    self.model = load_model('lr_model.pkl')
+    return jsonify({'message': " the model was downloaded"}), 200
 class HousingPredictor:
     def __init__(self):
         self.model = None
@@ -38,15 +45,13 @@ class HousingPredictor:
         logging.debug(prediction_input)
         if self.model is None:
             try:
-                #model_repo = os.environ['MODEL_REPO']
-                #file_path = os.path.join(model_repo, "xgboost.pkl")
-                file_path = 'rf_model.pkl'
+                file_path = 'lr_model.pkl'
                 with open(file_path, 'rb') as file_path:    
                     self.model = pickle.load(file_path)
             except KeyError:
                 print("MODEL_REPO is undefined")
-                with open('rf_model.pkl', 'rb') as file_path:
-                    self.model = pickle.load('rf_model.pkl')
+                with open('lr_model.pkl', 'rb') as file_path:
+                    self.model = pickle.load('lr_model.pkl')
 
         df = pd.read_json(StringIO(json.dumps(prediction_input)), orient='records')
         #df = pd.DataFrame([prediction_input])
@@ -54,7 +59,7 @@ class HousingPredictor:
         y_pred = self.model.predict(df)
         logging.info(y_pred[0])
         #print(f"Prediction Result: {y_pred[0]}")
-        #status = (y_pred[0] > 0.5)
+        status = (y_pred[0] > 0.5)
         #logging.info(f"Prediction Status: {status}")
         # return the prediction outcome as a json message. 200 is HTTP status code 200, indicating successful completion
         return jsonify({'result': str(y_pred[0])}), 200

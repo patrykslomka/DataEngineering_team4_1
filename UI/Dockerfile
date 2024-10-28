@@ -10,11 +10,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy all files in prediction-ui local host directory to /usr/src/myapp in Docker container
 COPY . .
 # Expose the port that our app runs in
-EXPOSE 8888
+EXPOSE 5000
 # Environment Variables
-ENV PREDICTOR_API=http://predictor-api-server:9999/housing_predict/
+# ENV PREDICTOR_API=http://predictor-api-server:5000/housing_predict/
 
-LABEL version ="0.0.1-beta"
+# LABEL housing.predictor.api ="0.0.1-beta"
 # Run our App
 CMD ["python3","app.py"]
 # We can also use an ENTRYPOINT and a CMD

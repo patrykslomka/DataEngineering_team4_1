@@ -1,3 +1,4 @@
+
 import sklearn
 import pickle
 import json
@@ -7,8 +8,6 @@ from flask import jsonify
 import logging
 from io import StringIO
 import pandas as pd
-from google.cloud import storage
-from keras.models import load_model
 
 # Create a DataFrame with your data
 # #data = {
@@ -31,30 +30,16 @@ from keras.models import load_model
 #df = pd.DataFrame(data)
 
 
-class DiabetesPredictor:
+class HousingPredictor:
     def __init__(self):
         self.model = None
-
-    # download the model
-    def download_model(self):
-        project_id = os.environ.get('PROJECT_ID', 'Specified environment variable is not set.')
-        model_repo = os.environ.get('MODEL_REPO', 'Specified environment variable is not set.')
-        model_name = os.environ.get('MODEL_NAME', 'Specified environment variable is not set.')
-        client = storage.Client(project=project_id)
-        bucket = client.bucket(model_repo)
-        blob = bucket.blob(model_name)
-        blob.download_to_filename('lr_model.pkl')
-        self.model = load_model('lr_model.pkl')
-        return jsonify({'message': " the model was downloaded"}), 200
 
     def predict_single_record(self, prediction_input):
         logging.debug(prediction_input)
         if self.model is None:
             try:
-                #model_repo = os.environ['MODEL_REPO']
-                #file_path = os.path.join(model_repo, "xgboost.pkl")
                 file_path = 'lr_model.pkl'
-                with open(file_path, 'rb') as file_path:
+                with open(file_path, 'rb') as file_path:    
                     self.model = pickle.load(file_path)
             except KeyError:
                 print("MODEL_REPO is undefined")
@@ -71,6 +56,11 @@ class DiabetesPredictor:
         #logging.info(f"Prediction Status: {status}")
         # return the prediction outcome as a json message. 200 is HTTP status code 200, indicating successful completion
         return jsonify({'result': str(y_pred[0])}), 200
+if __name__ == "__main__":
+    
+    logging.basicConfig(level=logging.DEBUG)
+
+
     
     predictor = HousingPredictor()
     result, status_code = predictor.predict_single_record(None)

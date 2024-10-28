@@ -8,6 +8,11 @@ app = Flask(__name__)
 app.config["DEBUG"] = True
 
 
+@app.route('/housing_predict/model', methods=['PUT'])  # trigger updating the model
+def refresh_model():
+    return dp.download_model()
+
+
 @app.route('/housing_predict/', methods=['POST']) # path of the endpoint. Except only HTTP POST request
 def predict_str():
     # the prediction input data in the message body as a JSON payload
@@ -20,5 +25,4 @@ dp = HousingPredictor()
 # The code within this conditional block will only run the python file is executed as a
 # script. See https://realpython.com/if-name-main-python/
 if __name__ == '__main__':
-    app.run(port=int(os.environ.get("PORT", 9999)), host='0.0.0.0', debug=True)
-
+    app.run(port=int(os.environ.get("PORT", 5000)), host='0.0.0.0', debug=True)

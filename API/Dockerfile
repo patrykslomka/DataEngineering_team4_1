@@ -9,9 +9,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy all files in prediction-api local host directory to /usr/src/myapp in Docker container
 COPY . .
 # Expose the port that our app runs in
-EXPOSE 9999
+EXPOSE 5000
 # Environment Variables
-ENV MODEL_REPO=/usr/src/myapp
+ENV PROJECT_ID=de2024s1
+ENV MODEL_REPO=model-2024 # your own repo
+ENV MODEL_NAME=lr_model.pkl
 # Run our App
 CMD ["python3","app.py"]
 # We can also use an ENTRYPOINT and a CMD

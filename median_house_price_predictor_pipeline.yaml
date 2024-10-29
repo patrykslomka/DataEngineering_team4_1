@@ -1,4 +1,4 @@
-# PIPELINE DEFINITION
+# Pipeline Definition 
 # Name: median-house-price-predictor-pipeline
 # Inputs:
 #    data_bucket: str

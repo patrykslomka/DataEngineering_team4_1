@@ -9,50 +9,80 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
         }
 
         body {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            background-color: #f5f5f5;
+            min-height: 100vh;
+            background-color: #f4f7f9;
             color: #333333;
         }
 
         .content-container {
-            text-align: center;
-            background-color: #ffffff;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
             width: 90%;
+            max-width: 600px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border: 1px solid #e0e6ed;
         }
 
         .header-box {
-            background-color: #4CAF50;
+            background-color: #1e88e5;
             color: #ffffff;
-            padding: 1rem;
-            border-radius: 8px 8px 0 0;
-            font-size: 1.8rem;
+            padding: 1.5rem;
+            font-size: 1.6rem;
             font-weight: bold;
+            border-bottom: 1px solid #e0e6ed;
+            letter-spacing: 0.5px;
         }
 
-        .prediction-text {
-            margin-top: 1.5rem;
-            font-size: 1.5rem;
-            color: #555555;
+        .prediction-content {
+            padding: 2rem;
+        }
+
+        .prediction-label {
+            font-size: 1.4rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .prediction-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2e3b4e;
+            margin-top: 0.5rem;
+        }
+
+        .footer-note {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #888;
+            border-top: 1px solid #e0e6ed;
+            padding-top: 1rem;
         }
     </style>
 </head>
 <body>
     <div class="content-container">
         <div class="header-box">
-            Estimated House Price
+            Housing Price Prediction
         </div>
-        <p class="prediction-text">Housing Price: <strong>{{ prediction_variable }}</strong></p>
+
+        <div class="prediction-content">
+            <div class="prediction-label">Estimated Price</div>
+            <div class="prediction-value">${{ prediction_variable }}</div>
+        </div>
+
+        <div class="footer-note">
+            * This estimation is based on input factors and may vary. Please consult a local real estate expert for further advice.
+        </div>
     </div>
 </body>
 </html>

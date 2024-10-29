@@ -3,68 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Housing Check Model</title>
+    <title>Housing Price Prediction Tool</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
         }
 
         body {
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: #f5f5f5;
+            background-color: #f4f7f9;
             padding: 2rem;
-            color: #333333;
+            color: #333;
         }
 
-        .explanation-container {
-            max-width: 700px;
+        .container {
+            width: 90%;
+            max-width: 800px;
             background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
             overflow: hidden;
+            border: 1px solid #e0e6ed;
+            margin-bottom: 2rem;
         }
 
-        .explanation-header {
-            background-color: #4CAF50;
+        .header {
+            background-color: #1e88e5;
             color: #ffffff;
-            padding: 1rem;
+            padding: 1.5rem;
             text-align: center;
             font-size: 1.8rem;
             font-weight: bold;
+            border-bottom: 1px solid #e0e6ed;
+            letter-spacing: 0.5px;
         }
 
-        .explanation-content {
+        .explanation {
             padding: 2rem;
+            color: #555;
+            background-color: #f9fafc;
+            border-bottom: 1px solid #e0e6ed;
         }
 
-        .section-title {
-            font-size: 1.2rem;
-            color: #333333;
-            margin-top: 1rem;
-            margin-bottom: 0.5rem;
+        .explanation h2 {
+            font-size: 1.4rem;
+            color: #1e88e5;
+            margin-bottom: 1rem;
         }
 
-        .explanation-content p,
-        .explanation-content ul {
+        .explanation p, .explanation ul {
             font-size: 1rem;
             line-height: 1.6;
-            color: #555555;
             margin-bottom: 1rem;
         }
 
         .form-container {
-            width: 100%;
-            max-width: 700px;
             padding: 2rem;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .form-grid {
@@ -78,128 +77,127 @@
         }
 
         label {
-            color: #555555;
-            font-weight: bold;
+            font-weight: 500;
+            color: #444;
+            margin-bottom: 0.5rem;
+            display: block;
         }
 
         input[type="text"] {
             width: 100%;
             padding: 0.8rem;
-            border: 1px solid #dddddd;
-            border-radius: 4px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
             font-size: 1rem;
+            color: #333;
         }
 
         input[type="submit"] {
-            width: 100%;
+            grid-column: 1 / -1;
             padding: 0.8rem;
             border: none;
-            border-radius: 4px;
-            background-color: #4CAF50;
-            color: white;
-            font-size: 1rem;
+            border-radius: 5px;
+            background-color: #1e88e5;
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: bold;
             cursor: pointer;
             transition: background-color 0.3s;
         }
 
         input[type="submit"]:hover {
-            background-color: #45a049;
+            background-color: #1565c0;
         }
     </style>
 </head>
 <body>
 
-<div class="explanation-container">
-    <div class="explanation-header">Welcome to the House Price Prediction Tool!</div>
-    <div class="explanation-content">
-        <div class="explanation-content">
+<div class="container">
+    <div class="header">
+        Housing Price Prediction Tool
+    </div>
+
+    <div class="explanation">
+        <h2>Welcome to the House Price Prediction Tool!</h2>
         <p>This tool helps you estimate the likely price of a house based on several factors related to the property and its location. Here’s how it works:</p>
+        
+        <p><strong>Your Income & Age:</strong> Provide your income and age. These help adjust the prediction based on typical affordability and demand factors for your demographic.</p>
 
-        <div class="section-title">Your Income & Age:</div>
-        <p>Provide your income and age. These help adjust the prediction based on typical affordability and demand factors for your demographic.</p>
-
-        <div class="section-title">Property Details:</div>
+        <p><strong>Property Details:</strong></p>
         <ul>
-            <li><strong>Number of Rooms and Total Bedrooms:</strong> Enter the total number of rooms and bedrooms in the house.</li>
-            <li><strong>Block Population:</strong> Enter the population count in the block where the property is located. This helps estimate the density of the area.</li>
-            <li><strong>Number of Households:</strong> Provide the number of households in the same block for additional context.</li>
+            <li>Number of Rooms and Total Bedrooms: Enter the total number of rooms and bedrooms in the house.</li>
+            <li>Block Population: Enter the population count in the block where the property is located to estimate area density.</li>
+            <li>Number of Households: Provide the number of households in the same block for added context.</li>
         </ul>
 
-        <div class="section-title">Geographical Coordinates:</div>
-        <ul>
-            <li><strong>Latitude and Longitude:</strong> Enter the exact coordinates of the property. This allows the model to take location into account.</li>
-        </ul>
+        <p><strong>Geographical Coordinates:</strong> Latitude and Longitude allow the model to take location into account.</p>
 
-        <div class="section-title">Distances to Major Areas:</div>
-        <p>Enter the distances in meters to various locations like the coast, Los Angeles, San Diego, San Jose, and San Francisco. Proximity to these areas significantly influences the house price.</p>
+        <p><strong>Distances to Major Areas:</strong> Enter distances in meters to places like the coast, Los Angeles, San Diego, San Jose, and San Francisco.</p>
 
         <p>Once you fill in the form, click <strong>Check</strong> to get the estimated house price based on your inputs!</p>
     </div>
-    </div>
-</div>
 
-<div class="form-container">
-    <form action="/housing_predict/" method="POST">
-        <h1>Check House Price</h1>
-        
-        <div class="form-grid">
-            <div class="form-grid-full">
-                <label for="Median_Income">Your Income:</label>
-                <input type="text" id="Median_Income" name="Median_Income" placeholder="Enter your income">
+    <div class="form-container">
+        <form action="/housing_predict/" method="POST">
+            <div class="form-grid">
+                <div class="form-grid-full">
+                    <label for="Median_Income">Your Income:</label>
+                    <input type="text" id="Median_Income" name="Median_Income" placeholder="Enter your income">
+                </div>
+                <div>
+                    <label for="Median_Age">Your Age:</label>
+                    <input type="text" id="Median_Age" name="Median_Age" placeholder="Enter your age">
+                </div>
+                <div>
+                    <label for="Tot_Rooms">Number of Rooms:</label>
+                    <input type="text" id="Tot_Rooms" name="Tot_Rooms" placeholder="Enter total rooms">
+                </div>
+                <div>
+                    <label for="Tot_Bedrooms">Total Bedrooms:</label>
+                    <input type="text" id="Tot_Bedrooms" name="Tot_Bedrooms" placeholder="Enter total bedrooms">
+                </div>
+                <div>
+                    <label for="Population">Block Population:</label>
+                    <input type="text" id="Population" name="Population" placeholder="Enter block population">
+                </div>
+                <div>
+                    <label for="Households">Number of Households:</label>
+                    <input type="text" id="Households" name="Households" placeholder="Enter households count">
+                </div>
+                <div>
+                    <label for="Latitude">Latitude:</label>
+                    <input type="text" id="Latitude" name="Latitude" placeholder="Enter latitude">
+                </div>
+                <div>
+                    <label for="Longitude">Longitude:</label>
+                    <input type="text" id="Longitude" name="Longitude" placeholder="Enter longitude">
+                </div>
+                <div>
+                    <label for="Distance_to_coast">Distance to Coast (m):</label>
+                    <input type="text" id="Distance_to_coast" name="Distance_to_coast" placeholder="Enter distance to coast">
+                </div>
+                <div>
+                    <label for="Distance_to_LA">Distance to LA (m):</label>
+                    <input type="text" id="Distance_to_LA" name="Distance_to_LA" placeholder="Enter distance to LA">
+                </div>
+                <div>
+                    <label for="Distance_to_SanDiego">Distance to San Diego (m):</label>
+                    <input type="text" id="Distance_to_SanDiego" name="Distance_to_SanDiego" placeholder="Enter distance to San Diego">
+                </div>
+                <div>
+                    <label for="Distance_to_SanJose">Distance to San Jose (m):</label>
+                    <input type="text" id="Distance_to_SanJose" name="Distance_to_SanJose" placeholder="Enter distance to San Jose">
+                </div>
+                <div class="form-grid-full">
+                    <label for="Distance_to_SanFrancisco">Distance to San Francisco (m):</label>
+                    <input type="text" id="Distance_to_SanFrancisco" name="Distance_to_SanFrancisco" placeholder="Enter distance to San Francisco">
+                </div>
+                <div class="form-grid-full">
+                    <input type="submit" value="Check">
+                </div>
             </div>
-            <div>
-                <label for="Median_Age">Your Age:</label>
-                <input type="text" id="Median_Age" name="Median_Age" placeholder="Enter your age">
-            </div>
-            <div>
-                <label for="Tot_Rooms">Number of Rooms:</label>
-                <input type="text" id="Tot_Rooms" name="Tot_Rooms" placeholder="Enter total rooms">
-            </div>
-            <div>
-                <label for="Tot_Bedrooms">Total Bedrooms:</label>
-                <input type="text" id="Tot_Bedrooms" name="Tot_Bedrooms" placeholder="Enter total bedrooms">
-            </div>
-            <div>
-                <label for="Population">Block Population:</label>
-                <input type="text" id="Population" name="Population" placeholder="Enter block population">
-            </div>
-            <div>
-                <label for="Households">Number of Households:</label>
-                <input type="text" id="Households" name="Households" placeholder="Enter households count">
-            </div>
-            <div>
-                <label for="Latitude">Latitude:</label>
-                <input type="text" id="Latitude" name="Latitude" placeholder="Enter latitude">
-            </div>
-            <div>
-                <label for="Longitude">Longitude:</label>
-                <input type="text" id="Longitude" name="Longitude" placeholder="Enter longitude">
-            </div>
-            <div>
-                <label for="Distance_to_coast">Distance to Coast (m):</label>
-                <input type="text" id="Distance_to_coast" name="Distance_to_coast" placeholder="Enter distance to coast">
-            </div>
-            <div>
-                <label for="Distance_to_LA">Distance to LA (m):</label>
-                <input type="text" id="Distance_to_LA" name="Distance_to_LA" placeholder="Enter distance to LA">
-            </div>
-            <div>
-                <label for="Distance_to_SanDiego">Distance to San Diego (m):</label>
-                <input type="text" id="Distance_to_SanDiego" name="Distance_to_SanDiego" placeholder="Enter distance to San Diego">
-            </div>
-            <div>
-                <label for="Distance_to_SanJose">Distance to San Jose (m):</label>
-                <input type="text" id="Distance_to_SanJose" name="Distance_to_SanJose" placeholder="Enter distance to San Jose">
-            </div>
-            <div>
-                <label for="Distance_to_SanFrancisco">Distance to San Francisco (m):</label>
-                <input type="text" id="Distance_to_SanFrancisco" name="Distance_to_SanFrancisco" placeholder="Enter distance to San Francisco">
-            </div>
-            <div class="form-grid-full">
-                <input type="submit" value="Check">
-            </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
 
 </body>
